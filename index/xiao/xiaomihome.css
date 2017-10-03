@@ -1,0 +1,67 @@
+.adsize {
+    /* display: block; */
+    /* padding-top: 50px; */
+    text-align: center;
+} 
+.topnav {
+    background: #333;
+}
+.topnav .row.bar {
+    padding: 10px 0
+}
+.topnav a {
+    color: #b0b0b0;  
+    font-size: 10px;
+}
+.topnav .col.col-10 {
+    text-align: left;
+}
+.topnav .col.col-10 a {
+    padding-right: 3px;
+}
+.topnav .col.col-2 {
+    text-align: right;
+}
+.topnav .col.col-2 a {
+    padding-left: 5px;
+}
+.header {
+    padding: 35px;     
+}
+.header .logo {
+    font-size: 30px;
+    vertical-align:middle;
+}
+.header .main {
+    vertical-align:middle;
+}
+.header .main a{    
+    font-size: 16px;
+    color: #333;
+    text-align: center;
+    padding:0 9px;
+}
+.header .btn {
+    text-align: right;
+    vertical-align: middle;
+}
+.header .btn input {
+    margin-left: 10px;
+}
+.content .col.col-2 {
+    background: #333;
+    font-size: 15px;
+    height: 350px;
+    
+}
+.content .col.col-2 a {
+    color: #fff;
+    display: block;   
+    padding: 7px 5px;   
+}
+.content .row.tomain {
+   margin-top: 7px;
+}
+.content .row.tomain.sub {
+    display: block;
+}
