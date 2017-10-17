@@ -1,0 +1,21 @@
+;(function(){
+    'use strict'
+    window.user_list=[
+        {
+            name:"张学友",
+            age:25,
+        },
+        {
+            name:"刘德华",
+            age:25,
+        },
+        {
+            name:"黎明",
+            age:25,
+        },
+        {
+            name:'郭富城',
+            age:25,
+        }
+    ]
+})();
