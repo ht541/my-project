@@ -7,62 +7,52 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
-        body {
-            margin: 0;
-        }
-
         #wsy {
+            display: inline-block;
+        }
+        input {
+            border-radius: 25px;
+            background: yellow;
+        }
 
-            width: 379px;
-            height: 300px;
+        textarea {
+            height: 200px;
+            width: 200px;
+        }
+
+        #article_lists {
+            width: 200px;
+            height: 200px;
+            border-radius: 15px;
+        }
+
+        button {
             background: black;
-        }
-
-        #wsy input {
-            width: 375px;
-            height: 25px;
-            vertical-align: top;
-        }
-
-        #wsy textarea {
-            height: 275px;
-            width: 373px;
-            vertical-align: top;
-        }
-
-        #wsy span {
             color: #fff;
         }
-
-        #wsy button {
-            vertical-align: top;
-            color: green;
-        }
-
     </style>
 </head>
 
 <body>
-
-    <div id="wsy">
-        <form id="article_form">
-            <div>
-                <span>标题</span>
-                <input type="text" name="title">
-            </div>
-            <div>
-                <span>作者</span>
-                <input type="text" name="author">
-            </div>
-            <div>
-                <span>文章</span>
-                <textarea name="content" cols="21" rows="10"></textarea>
-            </div>
-            <button type="submit">提交</button>
-        </form>
+    <div id="ht">
+        <div id="wsy">
+            <form id="article_form">
+                <div>
+                    <span>标题</span>
+                    <input type="text" name="title">
+                </div>
+                <div>
+                    <span>作者</span>
+                    <input type="text" name="author">
+                </div>
+                <div>
+                    <textarea name="content" cols="21" rows="20"></textarea>
+                </div>
+                <button type="submit">提交</button>
+            </form>
+        </div>
+        <div id="article_lists"></div>
     </div>
-    <div id="article_lists"></div>
-
     <script src="storage.js"></script>
     <script src="items.js"></script>
     <script src="ui.js"></script>
