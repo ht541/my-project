@@ -1,70 +1,68 @@
 ; (function () {
     'use strict'
-    var ine, ineid;
-    init_data_1();
+    var article_list, last_id;
+    init_data();
 
-    function init_data_1() {
-        ine = s.get('ine')
-        ineid = s.get('ineid')
-        if (!ine) {
-            ine = []
-            s.set('ine', ine)
-        }
-        if (!ineid) {
-            ineid = 0
-            s.set('ineid', ineid)
-        }
+    window.b = {
+        article_list: article_list,
+        last_id: last_id,
+        add: add,
+        del: del,
+        update: update,
+        seek: seek,
     }
-    function add(id, title,content, author) {
-        var new_article_list = {
-            id: ineid + 1,
-            title: title,
-            content:content,
-            author: author,
+
+    function init_data() {
+        article_list = s.get('article_list') || [];
+        last_id = s.get('last_id') || 0;
+    }
+  
+    function add(article) {
+        if (!article || !article.title) {
+            alert('请输入内容')
+            return;
         }
-        ine.push(new_article_list)
-        inc()
+        last_id++;
+        article.id = last_id;
+        article_list.push(article);
+        s.set('last_id', last_id);
         sync()
     }
-
     function find_index(id) {
-        return ine.findIndex(function (at) {
-            if (at.id == id) {
-                return true
-            }
+        return article_list.findIndex(function (article) {
+            return article.id === id;
         });
     }
 
     function del(id) {
         var shit_index = find_index(id);
-        if (shit_index === -1) return;
-        ine.splice(shit_index, 1);
-        sync()
+        if (shit_index == -1) return;
+        article_list.splice(shit_index, 1)
+        sync();
     }
 
-    function updata(id, title) {
-        var task_index = find_index(id);
-        if (task_index === -1) return;
-        var task = ine[task_index];
-        task.title = title;
-        task.author = author;
-        sync()
+    function update(id, patch) {
+        var index = find_index(id);
+        var article = article_list[index];
+        article_list[index] = Object.assign({}, article, patch);
+        sync();
+    }
+    function find(id) {
+        return article_list.find(function (article) {
+            return article.id == id
+        });
     }
 
     function seek(id) {
-        var seek_index = find_index(id);
-        if (seek_index === -1) return;
-        return ine[seek_index];
-        sybn()
-    }
-    function inc() {
-        ineid = s.get('ineid')
-        s.set('ineid', ineid + 1)
+        if (id)
+            return find(id);
+        return article_list;
     }
 
     function sync() {
-        s.set('ine', ine)
+        s.set('article_list', article_list);
     }
+
 
 
 })();
