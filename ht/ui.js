@@ -34,13 +34,14 @@
         list.forEach(function (article) {
             var el_article = document.createElement('div');
             el_article.innerHTML = `
-             标题:    ${article.title} ID:${article.id}
-             作者:    ${article.author}
-                      ${article.content}  
+             标题:${article.title} ID:${article.id}
+             作者:${article.author}
+                  ${article.content}  
             <div>
             <button data-id="${article.id}" id="btn-delete-${article.id}">删除</button>
             <button data-id="${article.id}" id="btn-update-${article}">更新</button>
-            </div>`;
+            </div>
+            </br>`;
             var btn_del = el_article.querySelector('#btn-delete-' + article.id);
             var btn_update = el_article.querySelector('#btn-update-');
             btn_del.addEventListener('click', function () {

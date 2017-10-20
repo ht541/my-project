@@ -7,25 +7,28 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
-        #wsy {
-            display: inline-block;
-        }
+       #ht {
+           width: 373px;
+           text-align: center;
+       }
+       #wsy {
+           height: 420px;
+           width: 373px;
+           border: 1px solid #e2dada;
+       }
         input {
-            border-radius: 25px;
-            background: yellow;
+            border-radius: 10px;
+            background: #f7f7f7;
         }
 
         textarea {
-            height: 200px;
-            width: 200px;
+            display: block;
+            background: #f7f7f7;
         }
 
-        #article_lists {
-            width: 200px;
-            height: 200px;
-            border-radius: 15px;
+        h5 {
+            display: inlin
         }
-
         button {
             background: black;
             color: #fff;
@@ -35,22 +38,23 @@
 
 <body>
     <div id="ht">
+        <h2>文章应用</h2>
         <div id="wsy">
             <form id="article_form">
                 <div>
-                    <span>标题</span>
+                    <h5>标题</h5>
                     <input type="text" name="title">
                 </div>
                 <div>
-                    <span>作者</span>
+                    <h5>作者</h5>
                     <input type="text" name="author">
                 </div>
-                <div>
-                    <textarea name="content" cols="21" rows="20"></textarea>
-                </div>
+                <h5>内容</h5>
+                <textarea name="content" cols="50" rows="10"></textarea>
                 <button type="submit">提交</button>
             </form>
         </div>
+        </br>
         <div id="article_lists"></div>
     </div>
     <script src="storage.js"></script>

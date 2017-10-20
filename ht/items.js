@@ -35,6 +35,9 @@
     }
 
     function del(id) {
+        if(true){
+            alert('确定删除文章?')
+        }
         var shit_index = find_index(id);
         if (shit_index == -1) return;
         article_list.splice(shit_index, 1)
