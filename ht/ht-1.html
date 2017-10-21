@@ -6,60 +6,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <style>
-       #ht {
-           width: 373px;
-           text-align: center;
-       }
-       #wsy {
-           height: 420px;
-           width: 373px;
-           border: 1px solid #e2dada;
-       }
-        input {
-            border-radius: 10px;
-            background: #f7f7f7;
-        }
-
-        textarea {
-            display: block;
-            background: #f7f7f7;
-        }
-
-        h5 {
-            display: inlin
-        }
-        button {
-            background: black;
-            color: #fff;
-        }
-    </style>
+    <link rel="stylesheet" href="global.css">
+    <link rel="stylesheet" href="article.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
-    <div id="ht">
-        <h2>文章应用</h2>
-        <div id="wsy">
-            <form id="article_form">
-                <div>
-                    <h5>标题</h5>
+    <div class="wrapper">
+        <div class="row">
+            <div class="col info col-12">
+                <div class="topnav">
+                    <a href="">Tudo, designed by the team</a>
+                </div>
+                <form id="article_form">
+                    <textarea name="content" id=" " cols="35" rows="3"></textarea>
                     <input type="text" name="title">
-                </div>
-                <div>
-                    <h5>作者</h5>
+                    <h4>标题</h4>
                     <input type="text" name="author">
-                </div>
-                <h5>内容</h5>
-                <textarea name="content" cols="50" rows="10"></textarea>
-                <button type="submit">提交</button>
-            </form>
+                    <h4>作者</h4>
+                    <button type="submit">提交</button>
+                </form>
+            </div>
         </div>
-        </br>
-        <div id="article_lists"></div>
     </div>
-    <script src="storage.js"></script>
-    <script src="items.js"></script>
-    <script src="ui.js"></script>
+    <div class="wrapper">
+        <div class="row">
+            <div class="col bt col-12">
+                <div id="article_lists">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="storage.js "></script>
+    <script src="items.js "></script>
+    <script src="ui.js "></script>
 </body>
 
 </html>
