@@ -1,11 +1,14 @@
+.col.nav.col-12 {
+    background: #5e7ae9;
+}
 .col.nav.col-12 a {
-    font-size: 50px;
+    font-size: 40px;
     font-weight: bold;
     letter-spacing: 5px;
     margin-bottom: 8px;
 }
 #article_form {
-    background: rgb(226, 222, 222);
+    background: #0a154a;
     vertical-align: middle;
 }
 .col.info.col-12 input {
@@ -29,11 +32,4 @@
     padding:7px 7px; 
     color:#000000;
     border-radius: 5px;
-}
-
-.btn_del {
-    background:#fff;color:#000000;
-}
-.btn_updata {
-    background:#fff;color:#000000;
 }

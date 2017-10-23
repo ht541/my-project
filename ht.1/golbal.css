@@ -10,9 +10,18 @@ body{
 a {
     text-decoration: none;
 }
+#ht {
+    width: 590px;
+    height: 550px;
+}
+button {
+    background: #fff;
+    border: none;
+    margin: 0;
+    font-size: 15px;
+}
 .wrapper {
-   text-align: center;
-
+    text-align: center;
 }
 .row{
     font-size: 0;

@@ -2,7 +2,7 @@
     'use strict'
     var el_article_list = document.querySelector('#article_lists');
     var el_article_form = document.querySelector('#article_form');
-    var btn_del,btn_update;
+    var btn_del, btn_update;
 
     init();
 
@@ -29,33 +29,27 @@
         });
     }
 
-
     function render() {
         el_article_list.innerHTML = '';
         var list = b.seek();
         list.forEach(function (article) {
             var el_article = document.createElement('div');
             el_article.innerHTML = `
-            <textarea id="text_content" cols="110" rows="20" style="background:rgb(247, 227, 227);border-radius:7px;">
+            <textarea id="text_content" cols="110" rows="20" style="background:rgb(249, 240, 240);border-radius:7px;">
              标题:${article.title}&nbsp${article.id}    作者:${article.author}    发布时间:${article.mydate}
 
              内容:${article.content}
              </textarea></br>
-             <button data-id="${article.id}" id="btn-delete-${article.id}" class="fa fa-times"></button>
-             <button id="btn-update-${article.id}" class="fa fa-refresh"></button>
+             <button data-id="${article.id}" id="btn-delete-${article.id}" class="fa fa-times" style="background:#fff;color:#000000;padding:5px"></button>
+             <button id="btn-update-${article.id}" class="fa fa-refresh" style="background:#fff;color:#000000;padding:5px;"></button>
              `;
-             btn_del = el_article.querySelector('#btn-delete-' + article.id);
-             btn_del.classList.add('btn_del');
-             btn_update = el_article.querySelector('#btn-update-'+ article.id);
+            btn_del = el_article.querySelector('#btn-delete-' + article.id);
+            btn_update = el_article.querySelector('#btn-update-' + article.id);
             btn_del.addEventListener('click', function () {
                 var id = parseInt(btn_del.dataset.id)
                 b.del(id);
                 render();
-            }); 
-            btn_update.addEventListener('click',function(){
-                b.update(parseInt(article.id),article);
-                render();
-            })
+            });
             el_article_list.appendChild(el_article);
         });
     }
