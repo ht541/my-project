@@ -2,7 +2,7 @@
     'use strict'
     var el_article_list = document.querySelector('#article_lists');
     var el_article_form = document.querySelector('#article_form');
-    var btn_del, btn_update;
+    var btn_del, btn_update, btn_comment;
 
     init();
 
@@ -42,9 +42,11 @@
              </textarea></br>
              <button data-id="${article.id}" id="btn-delete-${article.id}" class="fa fa-times" style="background:#fff;color:#000000;padding:5px"></button>
              <button id="btn-update-${article.id}" class="fa fa-refresh" style="background:#fff;color:#000000;padding:5px;"></button>
+             <button id="btn-comment-${article.id}" class="fa fa-refresh" style="background:#fff;color:#000000;padding:5px;"></button>
              `;
             btn_del = el_article.querySelector('#btn-delete-' + article.id);
             btn_update = el_article.querySelector('#btn-update-' + article.id);
+            btn_comment = el_article.querySelector('#btn-comment-' + article.id)
             btn_del.addEventListener('click', function () {
                 var id = parseInt(btn_del.dataset.id)
                 b.del(id);

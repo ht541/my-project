@@ -34,13 +34,13 @@
 
     function find_index(id) {
         return article_list.findIndex(function (article) {
-            return article.id === id;
+         return article.id === id;
         });
     }
 
     function del(id) {
-        if(confirm('确定删除?')==true){
-        }else{
+        if (confirm('确定删除?') == true) {
+        } else {
             return false;
         }
         var shit_index = find_index(id);
@@ -52,6 +52,8 @@
     function update(id, patch) {
         var index = find_index(id);
         var article = article_list[index];
+        article.id = parseInt(article.id)
+        patch.id = parseInt(patch.id)
         article_list[index] = Object.assign({}, article, patch);
         sync();
     }

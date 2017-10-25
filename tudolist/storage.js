@@ -2,11 +2,11 @@
     'use strict'
     window.s = {
         get: function (key) {
-            var cot = localStorage.getItem(key)
-            return JSON.parse(cot);
+            var json = localStorage.getItem(key);
+            return JSON.parse(json);
         },
         set: function (key, val) {
-            var val = JSON.stringify(val)
+            var val = JSON.stringify(val);
             return localStorage.setItem(key, val)
         }
     }

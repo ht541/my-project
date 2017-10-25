@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        [data-link] {
+            padding: 5px 10px;
+            cursor: pointer;
+            background: rgba(0, 0, 0, .1);
+        }
+
+        [data-link]:hover {
+            background: rgba(0, 0, 0, .15);
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="nav">
+        <span data-link="admin" class="nav-item">后台管理</span>
+        <span data-link="home" class="nav-item">首页</span>
+        <span data-link="login" class="nav-item">登录</span>
+    </div>
+
+    <div data-page="home" class="page home">
+        Home
+    </div>
+    <div data-page="admin" class="page admin">
+        Admin
+    </div>
+    <div data-page="login" class="page login">
+        login
+    </div>
+    <script src="storage.js"></script>
+    <script src="router.js"></script>
+</body>
+
+</html>
