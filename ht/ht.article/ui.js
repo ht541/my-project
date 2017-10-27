@@ -29,6 +29,19 @@
         });
     }
 
+
+
+
+    function set_form_value(el, patch) {
+        /*迭代要写入的数据对象*/
+        for (var key in patch) {
+            var val = patch[key];
+            var input = el.querySelector('[name=' + key + ']');
+            if (!input) continue;
+            input.value = val;
+        }
+    }
+
     function render() {
         el_article_list.innerHTML = '';
         var list = b.seek();
@@ -52,6 +65,9 @@
                 b.del(id);
                 render();
             });
+            btn_update.addEventListener('click', function () {
+                set_form_value(el_article_form, article)
+            })
             el_article_list.appendChild(el_article);
         });
     }

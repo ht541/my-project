@@ -29,16 +29,43 @@
     </div>
 
     <div data-page="home" class="page home">
-        Home
+        <h3>首页</h3>
     </div>
     <div data-page="admin" class="page admin">
-        Admin
+        <h3>商品后台管理</h3>
     </div>
     <div data-page="login" class="page login">
         login
     </div>
+    <div>
+        <form id="product_form">
+            标题
+            <input type="text" size="10" name="title">
+            价格 
+            <input type="text" size="10" name="price">
+            <button type="submit">提交</button>
+        </form>
+    </div>
+    <div>
+        <table border="1">
+            <thead>
+                <tr>
+                    <td>商品名称</td>
+                    <td>商品价格</td>
+                    <td>商品操作</td>
+                </tr>
+            </thead>
+            <tbody id="product_entry">
+
+            </tbody>
+        </table>
+    </div>
     <script src="storage.js"></script>
     <script src="router.js"></script>
+    <script src="product.js"></script>
+    <script src="new.js"></script>
+    <script src="hot.js"></script>
+    <script src="product_ui.js"></script>
 </body>
 
 </html>
