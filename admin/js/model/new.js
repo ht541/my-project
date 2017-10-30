@@ -1,4 +1,4 @@
-;(function () {
+; (function () {
   'use strict';
 
   window.new_model = {
@@ -17,9 +17,9 @@
   }
 
   function add(product_id) {
-    if (is_new(product_id))
-      return;
-
+    if (!product.exist(product_id))
+      if (is_new(product_id))
+        return;
     new_list.push(product_id);
     sync();
   }

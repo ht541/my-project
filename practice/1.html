@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            background: #eee;
+            margin: 0
+        }
+
+        #search_bar {
+            text-align: center;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        .row {
+            font-size: 0;
+            margin-bottom: 10px;
+        }
+
+        .container {
+            background: #fff;
+        }
+
+        .col {
+            font-size: 15px;
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        .col.sm {
+            width: 50%;
+        }
+
+        .col.lg {
+            width: 50%;
+        }
+
+        .row.result {
+            background: #fff;
+            border: 1px solid black;
+        }
+
+        input {
+            padding: 10px;
+            border-radius: 2px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #fff;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="search_bar">
+        <form id="list_form">
+            <input type="text" name="keyword" id="btn" autofocus placeholder="搜索github用户...">
+            <button type="submit">提交</button>
+        </form>
+        <div class="el_list">
+
+        </div>
+    </div>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="base.js"></script>
+</body>
+
+</html>

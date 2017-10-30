@@ -1,11 +1,13 @@
 ; (function () {
     'use strict'
     var product_list, product_last_id, error_index = 'idnex不存在，请检查';
-    window.product={
-        add:add,
-        del:del,
-        update:update,
-        seek:seek
+    window.product = {
+        add: add,
+        del: del,
+        update: update,
+        seek: seek,
+        exist: exist,
+        where_cat: where_cat
     }
 
     init();
@@ -13,6 +15,11 @@
     function init() {
         product_list = s.get('product_list') || [];
         product_last_id = s.get("product_last_id") || 0;
+    }
+
+
+    function exist(id) {
+        return !!seek(id);
     }
 
     function add(product) {
@@ -62,5 +69,11 @@
         product_last_id++
         s.set('product_last_id', product_last_id);
         return product_last_id;
+    }
+
+    function where_cat(car_id) {
+        return product_list.filter(function (product) {
+            return product.cat_id === cat_id;
+        })
     }
 })();
