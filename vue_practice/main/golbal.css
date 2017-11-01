@@ -20,7 +20,7 @@ a {
 .col{
     display: inline-block;
     font-size: 15px;
-    vertical-align: top;
+    vertical-align: middle;
 }
 .col-1{
     width: 8.333333%;

@@ -16,34 +16,35 @@
         <div class="nav">
             <h1>ToDo List Widget</h1>
         </div>
-        <div class="header">
-            <span>Your Intimate TOOL</span>
-        </div>
         <form @submit.prevent="merge" id="search_form">
             <div class="warp">
-                <input v-model="current.title" type="text" id="task_id">
-                <button type="submit">点击</button>
+                <input v-model="current.title" type="text" id="task_id" placeholder=" Add  your  todo  application...">
+                <button type="submit" class="fa fa-hand-pointer-o"></button>
             </div>
         </form>
+        <div class="warp">
+            <strong>UNFINISHED</strong>
+        </div>
         <div class="row task">
-            <div class="warp">
-                完成
-                <div v-if="!todo.completed" v-for="(todo ,index) in list" class="col item">
-                    <span>undone</span>
-                    <span @click="toggle_completed(todo.id)" class="fa fa-square-o"></span>
-                    {{todo.title}}
-                    <span @click="del(todo.id)" class="fa fa-times"></span>
-                    <span @click="set_current(todo)" class="fa fa-refresh"></span>
+            <div class="warp toggle">
+                <div v-if="!todo.completed" v-for="(todo ,index) in list" class="col col-12">
+                    {{todo.title}} &nbsp;
+                    <span @click="toggle_completed(todo.id)" class="fa fa-check-square-o"></span>&nbsp;
+                    <span @click="del(todo.id)" class="fa fa-times" class="item_right"></span>&nbsp;
+                    <span @click="set_current(todo)" class="fa fa-refresh" class="item_right"></span>
                 </div>
             </div>
         </div>
-        <div class="task">
-            <div class="warp">
-                <div v-if="todo.completed" v-for="(todo ,index) in list" class="item">
-                    <span @click="toggle_completed(todo.id)" class="fa fa-minus-square-o"></span>
-                    {{todo.title}}
-                    <span @click="del(todo.id)" class="fa fa-times-circle"></span>
-                    <span @click="set_current(todo)" class="fa fa-refresh"></span>
+        <div class="warp">
+            <strong>OFF THE STOCKS</strong>
+        </div>
+        <div class="row task">
+            <div class="warp toggle">
+                <div v-if="todo.completed" v-for="(todo ,index) in list" class="col col-12">
+                    {{todo.title}}&nbsp;
+                    <span @click="toggle_completed(todo.id)" class="fa fa-minus-square-o"></span>&nbsp;
+                    <span @click="del(todo.id)" class="fa fa-times-circle"></span>&nbsp;
+                    <span @click="set_current(todo)" class="fa fa-refresh"></span>&nbsp;
                 </div>
             </div>
         </div>

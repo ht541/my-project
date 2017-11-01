@@ -4,51 +4,60 @@
     position: relative;
 }
 body {
-    background: #f9fdf9;
+    background: linear-gradient(#f2f7ee,#f2f6fa);
 }
 .warp {
     max-width: 500px;
     margin: 0 auto;
-    background: #f2f6fa;
-    margin-bottom:5px;
-}
-input {
-    width: 100%;
-    display: inline-block;
-    border: 1px solid black;
-    border-radius: 3px;
-    padding: 10px 5px;
-}
-.nav ,.header {
-    text-align: center;
+
 }
 .nav {
     background: #f2f7ee;
     color: black;
     padding: 20px;
+    text-align: center;
 }
 
 .nav h1 {
-     font-size: 30px;
+     font-size: 45px;
      margin: 0;
-     letter-spacing: 2px;
+     letter-spacing: 7px;
      font-weight: bold;
-     color: #efc1c1;
+     color: #320ec4
 } 
-
-.header {
-    font-size: 10px;
-    background: #f5f5f5;
-    padding: 10px;
-}
-
-.header span {
-    font-size: 25px;
-    
-}
-
-.warp span {
-    display: inline-block;
+.warp strong {
+    background: #edf0e3;
     font-size: 23px;
-    padding: 5px 10px;
+    letter-spacing: 4px;
+    font-weight: bold;
 }
+input {
+    width: 90%;
+    display: inline-block;
+    border: 1px solid black;
+    border-radius: 3px;
+    padding: 15px 5px;
+    font-size: 18px;
+}
+
+#search_form button {
+    padding: 15px 10px;
+    background: #fff;
+    border-radius: 7px;
+    font-weight: bold;
+}
+
+
+.warp.toggle {
+    background: #f1f3f3;
+    border-radius: 4px;
+}
+.warp.toggle span {
+    display: none;
+}
+.warp.toggle :hover span {
+    font-size: 20px;
+    vertical-align: middle;
+    display: inline-block;
+}
+
