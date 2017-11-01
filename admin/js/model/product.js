@@ -5,7 +5,7 @@
         add: add,
         del: del,
         update: update,
-        seek: seek,
+        read: read,
         exist: exist,
         where_cat: where_cat
     }
@@ -19,12 +19,16 @@
 
 
     function exist(id) {
-        return !!seek(id);
+        return !!read(id);
     }
 
     function add(product) {
         if (!product.title || !product.price)
             throw 'required title and price'
+        if (!cat.exist(product.cat_id))
+            throw 'invalid id'
+        product.price = parseFloat(product.price);
+        product.cat_id = parseInt(product.cat_id);
         product.id = inc();
         product_list.push(product);
         sync();
@@ -51,7 +55,7 @@
         sync()
     }
 
-    function seek(id) {
+    function read(id) {
         if (id) {
             var index = find_index(id);
             if (id === -1)

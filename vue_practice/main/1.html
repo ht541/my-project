@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="golbal.css">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <div id="main">
+        <div class="nav">
+            <h1>ToDo List Widget</h1>
+        </div>
+        <div class="header">
+            <span>Your Intimate TOOL</span>
+        </div>
+        <form @submit.prevent="merge" id="search_form">
+            <div class="warp">
+                <input v-model="current.title" type="text" id="task_id">
+                <button type="submit">点击</button>
+            </div>
+        </form>
+        <div class="row task">
+            <div class="warp">
+                完成
+                <div v-if="!todo.completed" v-for="(todo ,index) in list" class="col item">
+                    <span>undone</span>
+                    <span @click="toggle_completed(todo.id)" class="fa fa-square-o"></span>
+                    {{todo.title}}
+                    <span @click="del(todo.id)" class="fa fa-times"></span>
+                    <span @click="set_current(todo)" class="fa fa-refresh"></span>
+                </div>
+            </div>
+        </div>
+        <div class="task">
+            <div class="warp">
+                <div v-if="todo.completed" v-for="(todo ,index) in list" class="item">
+                    <span @click="toggle_completed(todo.id)" class="fa fa-minus-square-o"></span>
+                    {{todo.title}}
+                    <span @click="del(todo.id)" class="fa fa-times-circle"></span>
+                    <span @click="set_current(todo)" class="fa fa-refresh"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.bootcss.com/vue/2.4.4/vue.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>

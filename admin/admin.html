@@ -16,7 +16,7 @@
         <span data-link="home" class="nav-item">首页</span>
         <span data-link="admin_cat" class="nav-item">分类</span>
     </div>
-
+    <!-- 首页 -->
     <div data-page="home" class="page home">
         <h3>首页</h3>
         <div class="row cat">
@@ -28,13 +28,13 @@
         <h3>新品</h3>
         <div class="product_list_new"></div>
     </div>
-
+    <!-- 商品管理 -->
     <div data-page="admin_product">
         <h3>商品管理</h3>
         <form id="product_form">
             标题
             <input type="text " size="10 " name="title "> 价格
-            <input type="text " size="10 " name="price "> 分类:
+            <input type="text " size="10 " name="price "> 分类
             <select name="cat_id" id="select-product-cat"></select>
             <button type="submit ">提交</button>
         </form>
@@ -45,12 +45,10 @@
                 <th>分类</th>
                 <th>操作</th>
             </thead>
-            <tbody id="product_entry ">
-
-            </tbody>
+            <tbody id="product_entry "></tbody>
         </table>
     </div>
-
+    <!-- 分类管理 -->
     <div data-page="admin_cat">
         <h3>分类管理</h3>
         <form id="cat_form">
@@ -74,9 +72,10 @@
 
     <script src="js/base/storage.js"></script>
     <script src="js/base/router.js"></script>
-    <script src="js/model/product.js "></script>
     <script src="js/model/new.js "></script>
     <script src="js//model/hot.js "></script>
+    <script src="js/model/cat.js"></script>
+    <script src="js/model/product.js "></script>
     <script src="js/page/product_ui.js "></script>
 </body>
 

@@ -13,9 +13,9 @@
         cat_list = s.set('cat_list') || [];
         last_cat_id = s.set('last_cat_id') || 0;
     }
-
+    
     function exist(id) {
-        return !!seek(id);
+        return !!read(id);
     }
 
 

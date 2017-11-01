@@ -3,11 +3,15 @@
 
   var tbody = document.querySelector('#product_entry');
   var form = document.querySelector('#product_form');
+  var product_list = product.read();
+  var product_cat_list = document.querySelector('#select-product-cat');
+  var cat_list = cat.read();
 
   init();
 
   function init() {
     render();
+    render_cat();
     bind_submit();
   }
 
@@ -15,6 +19,7 @@
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       var data = get_form_data(form);
+      data.cat_id = parseInt(data.cat_id);
       if (data.id) {
         data.id = parseInt(data.id)
         product.update(data.id, data)
@@ -54,17 +59,28 @@
     var input_list = form.querySelectorAll("[name]");
     input_list.forEach(function (input) {
       input.value = '';
-    })
+    }); 
+  }
+
+  function render_cat() {
+    product_cat_list.innerHTML = '';
+    cat_list.forEach(function (cat) {
+      var option = document.createElement('option');
+      option.value = cat.id;
+      option.innerText = cat.title;
+      product_cat_list.appendChild(option);
+    });
   }
 
   function render() {
     tbody.innerHTML = '';
-    var list = product.seek();
+    var list = product.read();
     list.forEach(function (row) {
       var tr = document.createElement('tr');
       tr.innerHTML = `
       <td>${row.title}</td>
       <td>${row.price}</td>
+      <td>${cat.get_title(row.cat_id) || '-'}</td>
       <td>
        <label>
        <input type="checkbox" class="hot_check">热卖
