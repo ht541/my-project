@@ -19,8 +19,9 @@ a {
 }
 .col{
     display: inline-block;
-    font-size: 15px;
+    font-size: 23px;
     vertical-align: middle;
+    margin: 10px 0;
 }
 .col-1{
     width: 8.333333%;

@@ -19,7 +19,7 @@
         <form @submit.prevent="merge" id="search_form">
             <div class="warp">
                 <input v-model="current.title" type="text" id="task_id" placeholder=" Add  your  todo  application...">
-                <button type="submit" class="fa fa-hand-pointer-o"></button>
+                <button type="submit" class="fa fa-hand-pointer-o">任务添加</button>
             </div>
         </form>
         <div class="warp">
@@ -29,9 +29,9 @@
             <div class="warp toggle">
                 <div v-if="!todo.completed" v-for="(todo ,index) in list" class="col col-12">
                     {{todo.title}} &nbsp;
-                    <span @click="toggle_completed(todo.id)" class="fa fa-check-square-o"></span>&nbsp;
-                    <span @click="del(todo.id)" class="fa fa-times" class="item_right"></span>&nbsp;
-                    <span @click="set_current(todo)" class="fa fa-refresh" class="item_right"></span>
+                    <span @click="toggle_completed(todo.id)" class="fa fa-check-square-o">完成</span>&nbsp;
+                    <span @click="del(todo.id)" class="fa fa-times" class="item_right">删除</span>&nbsp;
+                    <span @click="set_current(todo)" class="fa fa-refresh" class="item_right">修改</span>
                 </div>
             </div>
         </div>
@@ -42,9 +42,9 @@
             <div class="warp toggle">
                 <div v-if="todo.completed" v-for="(todo ,index) in list" class="col col-12">
                     {{todo.title}}&nbsp;
-                    <span @click="toggle_completed(todo.id)" class="fa fa-minus-square-o"></span>&nbsp;
-                    <span @click="del(todo.id)" class="fa fa-times-circle"></span>&nbsp;
-                    <span @click="set_current(todo)" class="fa fa-refresh"></span>&nbsp;
+                    <span @click="toggle_completed(todo.id)" class="fa fa-minus-square-o">返回</span>&nbsp;
+                    <span @click="del(todo.id)" class="fa fa-times-circle">删除</span>&nbsp;
+                    <span @click="set_current(todo)" class="fa fa-refresh">修改</span>&nbsp;
                 </div>
             </div>
         </div>

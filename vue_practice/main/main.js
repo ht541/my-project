@@ -29,8 +29,8 @@
                     var todo = copy(this.current);
                     todo.id = this.next_id();
                     this.list.push(todo);
-                    console.log(this.list)
                 }
+                this.todo = {};
             },
 
             del: function (id) {
