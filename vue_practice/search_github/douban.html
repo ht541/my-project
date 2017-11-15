@@ -29,6 +29,7 @@
             <div v-for="product in list">
                 <span>{{product.title}}</span>
                 <span>{{product.price}}</span>
+                <span>{{product.cat_id}}</span>
                 <button @click="product_del(product.id)">删除</button>
                 <button @click="fill_form(product)">更新</button>
             </div>
