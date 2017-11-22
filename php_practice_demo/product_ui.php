@@ -29,6 +29,7 @@ $list = $product->read();
       <div class="cover"><img src="./imgs/<?php echo $product['cover_name']?>" alt=""></div>
       <div class="title"><?php echo $product['title']?></div>
       <div class="price"><?php echo $product['price']?></div>
+          <a href="./product_list.php?action=remove&id=<?php echo @$product['id'] ?>">删除</a>
     </div>
   <?php endforeach;?>
   </div>

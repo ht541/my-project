@@ -9,7 +9,9 @@ class Product {
 
     public function __construct(){
         $this->read();
-        $action = @$_POST['action'];
+
+        $parmas = array_merge($_GET,$_POST);
+        $action = @$parmas['action'];
         if($action){
             $this->$action();
         }
@@ -53,10 +55,23 @@ class Product {
     }
 
     public function remove(){
-
+        $id = $_GET['id'];
+         $index = $this->find_index($id);
+         array_splice($this->list,$index,1);
+          $this->sync();
     }
 
-    
+    public function find_index($id){
+             foreach($this->list as $index => $product){
+                if($id == $product['id']){
+                    return $index;
+                }
+             }
+        }
+
+    public function update(){
+
+    }
 }
 
 $product = new Product();
