@@ -1,5 +1,6 @@
 <?php 
 require_once('./product.php');
+require_once('./cat.php');
 function new_db(){
     return new PDO ('mysql:dbname=eshop;host=localhost;charset=utf8','root','hutong541',[
         PDO::ATTR_CASE => PDO::CASE_NATURAL, /*PDO::CASE_NATURAL | PDO::CASE_LOWER 小写，PDO::CASE_UPPER 大写， */
