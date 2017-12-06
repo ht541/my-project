@@ -15,6 +15,7 @@ function parse_param(){
     $Klass = ucfirst(@$param['model']);
     $method =@$param['action'];
     $model = new $Klass(new_db());
+    unset($param['model'],$param['action']);
     return $model->$method($param);
 }
 

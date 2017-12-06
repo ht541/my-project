@@ -12,9 +12,9 @@ class cat{
            if(!$title)
            return['success'=>false,'mag'=>'invalid:title'];
            if($this->title_exist($title))
-           return['success'=>false,'msg'=>'invalid:title'];
+           return['success'=>false,'msg'=>'invalid:titlenull'];
            $h = $this->db->prepare('insert into cat(title) value(:title)');
-           $r=$h->execute(['title'=>$titlel,]);
+           $r=$h->execute(['title'=>$title]);
            return $r ? ['success'=>true]:['success'=>false,'title_error'];
       }
 
@@ -46,8 +46,8 @@ class cat{
       }
 
       public function read($row){
-            $id = $row['id'];
-            $page = $row['page'];
+            $id = @$row['id'];
+            $page = @$row['page'] ? : 1;
             $limit = 3;
             $offset=$limit * ($page-1);
             $db =$this->db;
@@ -56,15 +56,16 @@ class cat{
                   $r->execute([
                         'id'=>$id
                   ]);
+                  $d = $r->fetch(PDO::FETCH_ASSOC);
             }else{
                   $r=$db->prepare('select * from cat order by id limit :offset,:limit');
                   $r->execute([
                         'limit'=>$limit,
                         'offset'=>$offset,
                   ]);
-                  $h = $r->fetchall(PDO::FETCH_ASSCO);
+                  $d = $r->fetchall(PDO::FETCH_ASSOC);
             }
-            return['success'=>true,'data'=>$h];
+            return['success'=>true,'data'=>$d];
       }
 
       public function find($id){
@@ -80,6 +81,6 @@ class cat{
             $h->execute([
                   'title'=>$title
             ]);
-            return (bool) $h->fetch(PDO::FETCH_ASSCO);
+            return (bool) $h->fetch(PDO::FETCH_ASSOC);
       }
 }
