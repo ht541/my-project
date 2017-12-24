@@ -133,11 +133,15 @@
     }
 
     function size(obj) {
-        if (isArrays(obj)) {
-            return obj.length;
-        } else {
-            return Object.keys(obj).length;
+        return Object.keys(obj).length;
+    }
+
+    function size(obj) {
+        var count = 0;
+        for (var key in obj) {
+            count++
         }
+        return count
     }
 
     function add(augend, addend) {
@@ -270,6 +274,21 @@
         return arr;
     }
 
+    function flattenDeeps(arr) {
+        var result = [];
+        function forDeeps(ary) {
+            for (var i = 0; i < ary.length; i++) {
+                if (Array.isArray(ary[i])) {
+                    forDeeps(ary[i])
+                } else {
+                    result.push(ary[i])
+                }
+            }
+        }
+        forDeeps(arr)
+        return result;
+    }
+
     function bind(fn, ...fixedArgs) {
         return function (...receivedArgs) {
             for (var i = 0; i < fixedArgs.length; i++) {
@@ -330,4 +349,118 @@
         return [].concat(value);
     }
 
+    function difference(arr, ...value) {
+        for (var i = 0; i < arr.length; i++) {
+            value.filter(item => {
+                if (arr[i] === item) {
+                    arr.splice(i, 1)
+                }
+            })
+        }
+        return arr;
+    }
+
+    function fill(arr, value, start = 0, end = arr.length) {
+        for (var i = start; i < end; i++) {
+            arr[i] = value
+        }
+        return arr;
+    }
+
+    function pull(arr, ...value) {
+        for (var i = 0; i < arr.length; i++) {
+            value.forEach(item => {
+                if (item === arr[i]) {
+                    arr.splice(i, 1)
+                }
+            })
+        }
+        return arr;
+    }
+
+    function isEqual(obj, other) {
+        if (isNaN(obj) && isNaN(other)) {
+            return true;
+        }
+        if (typeof obj !== 'object' && typeof other !== 'object') {
+            return obj === other ? true : false;
+        }
+
+        var v1, v2;
+        var size1 = 0, size2 = 0;
+        for (prop in obj) {
+            size1++
+        }
+        for (prop in other) {
+            size2++
+        }
+        if (size1 !== size2) {
+            return false
+        }
+        for (prop in obj) {
+            v1 = obj[prop]
+            v2 = other[prop]
+            if (typeof v1 === 'object') {
+                if (!isEqual(v1, v2)) {
+                    return false
+                }
+            } else {
+                if (v1 !== v2) {
+                    return false
+                }
+            }
+        }
+        return true;
+    }
+
+
+    function isMatch(obj, source) {
+        for (var key in source) {
+            if (!isEqual(obj[key], source[key])) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    function delay(fn, wait, ...args) {
+        setTimeout(function () {
+            fn(...args)
+        }, wait)
+    }
+
+    function repeat(fn, tims, duration) {
+        return function () {
+            for (var i = 0; i < tims; i++) {
+                setTimeout(fn(), duration)
+            }
+        }
+    }
+
+    function repeats(fn, tims, duration) {
+        return function () {
+            var t = setInterval(fn, duration)
+            setTimeout(function () {
+                clearInterval(t)
+            }, tims * duration)
+        }
+    }
+
+    function attempt(source) {
+        return function () {
+            return source
+        }
+    }
+
+    function unary(fn) {
+        return function (arg) {
+            fn(arg)
+        }
+    }
+
+    function spread(fn) {
+        return function (ary) {
+            return fn.apply(null, ary)
+        }
+    }
 })();

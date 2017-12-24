@@ -24,6 +24,7 @@ function json($data){
      return json_encode($data);
 }
 
+
 function init(){
     echo json(parse_param());
 }

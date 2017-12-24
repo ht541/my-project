@@ -1,0 +1,379 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.top-ad {
+    min-width: 1366px;
+    height: 120px;
+}
+.top-ad .top-content {
+    width: 100%;
+    height: 120px;
+    background-image: url(http://i1.mifile.cn/a4/cms_15139095186428_rUbpq.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.header {
+    width: 100%;
+    height: 40px;
+    font-size: 12px;
+    color: #b0b0b0;
+    background: #333;
+}
+.header .header-content {
+    width: 1226px;
+    height: 100%;
+    margin: 0 auto;
+}
+.header .info {
+    line-height: 40px;
+}
+
+.info a { 
+    color: white;
+    text-decoration: none;
+}
+.info span {
+    color: #424242;
+    margin: 4px;
+}
+
+.info .right{
+    float: right;
+    margin: 0
+}
+
+.right li {
+    float: left;
+    padding: 0 15px;
+    list-style: none;
+    color: white;
+}
+
+.right .cart {
+    background-color: #ff6700;
+    position: relative;
+}
+.cart:hover div {
+     opacity: 1;
+     top: 100%;
+     max-height: 330px;
+     z-index: 10;
+     background-color: #424242;
+}
+.cart >div{
+    overflow: hidden;
+    transition: all 0.5s linear;
+    opacity: 0;
+    max-height: 0;
+    position: absolute;
+    width: 320px;
+    top: 100%;
+    right: 0;
+    color: black;
+    box-shadow: 0 3px 3px black;
+}
+
+.cart ul {
+    width: 320px;
+    max-height: 200px;
+    overflow: auto;
+}
+.cart li {
+    color: black;
+    clear: left;
+}
+
+.cart .bom {
+    width: 150px;
+    margin: 0 auto;
+    font-size: 16px;
+    color: #ff6700;
+}
+
+.nav {
+    width: 100%;
+    height: 100px;
+    position: relative;
+}
+
+.nav .nav-content {
+    width: 1226px;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.nav-content .logo {
+    width: 55px;
+    height: 55px;
+    background-color: #ff6700;
+    margin-top: 22.5px;
+    margin-right: 5px;
+    float: left;
+}
+
+.nav-content .logo span {
+    color: white;
+    font-size: 20px;
+    margin-top: 11.5px;
+    display: inline-block;
+}
+
+.nav-content .nav-ad {
+    width: 165px;
+    height: 100%;
+    float: left;
+    margin-top: 14px;
+}
+
+.nav-content .cat{
+    float: left;
+    margin: 0;
+    padding: 0;
+}
+
+.cat li {
+    float: left;
+    list-style: none;
+    line-height: 100px;
+    padding:  0 10px;
+}
+
+.search {
+    width: 300px;
+    margin-top: 25px;
+    float: right;
+    height: 50px;
+    position: relative;
+}
+
+.search input {
+    height: 50px;
+    width: 250px;
+    float: left;
+    border: 1px solid #ff6700;
+}
+
+.search button {
+    background-color: white;
+    height: 50px;
+    width: 50px;
+    float: left;
+    border: 1px solid #ff6700;
+}
+
+.l {
+    position:absolute;
+    top: 18px;
+    right: 150px;
+    font-size: 12px;
+    background-color: #b0b0b0;
+}
+
+.r {
+    position: absolute;
+    font-size: 12px;
+    right: 80px;
+    top: 18px;
+    background-color: #b0b0b0
+}
+
+.cat:hover .product_list {
+    z-index: 8;
+}
+.one:hover .product_list {
+    height: 230px;
+}
+.one .product_list {
+    transition: all 1s linear;
+    background-color: white;
+    overflow: hidden;
+    height: 0;
+    position: absolute;
+    width: 100%;
+    left: 0;
+}
+
+.product_list ul {  
+    margin: 0;
+    padding: 0;
+    width: 1226px;
+    list-style: none;
+    margin: 0 auto;
+}
+
+.product_list li {
+    border-top: 1px solid gray;  
+    position: relative;
+    box-shadow: 0 0 2px rgb(163, 160, 160);
+    width: 230px;
+}
+
+.product_list li span {
+    position:absolute;
+    bottom: 0;
+    left: 25%;;
+    height: 80px;
+    color: #ff6700;
+    font-size: 14px;
+}
+
+.product_list li img {
+    width: 160px;
+    height: 110px;
+    margin-top: 39px;
+}
+
+.slider {
+    height: 460px;
+    width: 1226px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.slider .slider-content {
+    width: 100%;
+    height: 100%;
+    background-image: url(https://i1.mifile.cn/a4/xmad_15137396701328_JtIRP.jpg);
+    background-size:100% 100%;
+}
+.slider .cates {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 20px 0;
+    list-style: none;
+    margin: 0;
+    width: 235px;
+    font-size: 15px;
+}
+
+.cates > li {
+   height: 42px;
+   line-height: 42px;
+   color: white;
+   padding: 0 30px;
+}
+
+.cates > li:hover {
+    background-color: #ff6700;
+}
+
+.cates > li::after{
+    content: ">";
+    float:right;
+}
+
+.cates > li > ul {
+    position: absolute;
+     left: 235px;
+     top: 0; 
+     padding: 0;
+     margin: 0;
+     list-style: none;
+     display: none;
+     height: 100%;
+     background-color: white;
+}
+
+.cates > li:hover ul{
+    display: block;
+}
+
+.cates > li >ul >li {
+    padding: 0 20px;
+    width: 260px;
+    height: 92px;
+}
+.cates span {
+    color: #ff6700;
+    font-size: 13px;
+}
+
+.m-content {
+    width: 1226px;
+    height: 170px;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.m-content ul {
+    width: 234px;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    float: left;
+}
+
+.m-content ul li {
+    float: left;
+    width: 70px;
+    height: 85px;
+    padding: 0 3px;
+    font-size: 12px;;
+    border: 1px solid rgb(168, 161, 161);
+    background: #5f5750;
+    margin: 0;
+}
+.m-content .bot{
+    float: right;
+    height: 170px;
+}
+
+.bot img {
+    width: 316px;
+    height: 170px;
+    overflow: hidden;
+    margin-left: 11px;
+}
+
+.menu-content {
+  width: 1226px;
+  height: 438px;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.menu-content .menu-top {
+    height: 58px;
+    width: 100%;
+}
+.menu-top .title {
+    font-size: 22px;
+    font-weight: 200;
+    line-height: 58px;
+    color: #333;
+}
+
+.menu-content .product {
+    height: 340px;
+    width: 100%;
+    float: left;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.menu-content .product li {
+    border-top: 1px solid green;
+    float: left;
+    width: 235px;
+    height: 340px;
+    margin-right: 10px;
+    background-color: #fafafa;
+}
+
+.product li > img {
+    width: 235px;
+    height: 235px;
+}
+
+.product>li span {
+    color: #ff6700;
+    font-size: 14px;
+    display: block;
+    margin: 20px 50px;
+}
