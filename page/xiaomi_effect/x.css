@@ -61,7 +61,7 @@
      top: 100%;
      max-height: 330px;
      z-index: 10;
-     background-color: #424242;
+     background-color: rgb(235, 201, 206);
 }
 .cart >div{
     overflow: hidden;
@@ -317,6 +317,10 @@
     border: 1px solid rgb(168, 161, 161);
     background: #5f5750;
     margin: 0;
+}
+
+.m-content ul li > a{
+    color: #fff;
 }
 .m-content .bot{
     float: right;
