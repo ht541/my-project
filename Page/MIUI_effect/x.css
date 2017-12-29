@@ -119,6 +119,16 @@
     font-size: 20px;
     margin-top: 11.5px;
     display: inline-block;
+    animation: spin linear 2s infinite;
+}
+
+@keyframes spin {
+    from{
+        transform: rotate(0deg);color: #333;
+    }
+    to{
+        transform: rotate(360deg);
+    }
 }
 
 .nav-content .nav-ad {

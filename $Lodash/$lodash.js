@@ -47,7 +47,13 @@
         return arr.splice(start, end);
     }
 
-
+    function flattenDeep(arr) {
+        while (arr.some(item => Array.isArray(item))) {
+            arr = Array.prototype.concat(...arr);
+        }
+        return arr;
+    }
+    
     function map(arr, mapper) {
         var result = [];
         for (var i = 0; i < arr.length; i++) {
@@ -64,6 +70,7 @@
             return result + value + arrjner;
         }, '')
     }
+
 
 
     function once(fn) {
@@ -165,7 +172,7 @@
         return result;
     }
 
-    function creates(proto) {
+    function create(proto) {
         function A() { };
         A.prototype = proto;
         return new A();
@@ -266,12 +273,6 @@
         if (index > -1) {
             arr.splice(index, 1);
         }
-    }
-    function flattenDeep(arr) {
-        while (arr.some(item => Array.isArray(item))) {
-            arr = Array.prototype.concat(...arr);
-        }
-        return arr;
     }
 
     function flattenDeeps(arr) {
