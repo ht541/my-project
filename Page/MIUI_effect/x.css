@@ -115,7 +115,7 @@
 }
 
 .nav-content .logo span {
-    color: white;
+    color: rgb(143, 250, 43);
     font-size: 20px;
     margin-top: 11.5px;
     display: inline-block;
@@ -124,7 +124,7 @@
 
 @keyframes spin {
     from{
-        transform: rotate(0deg);color: #333;
+        transform: rotate(0deg);color: rgb(255, 221, 227);
     }
     to{
         transform: rotate(360deg);
@@ -545,7 +545,7 @@ span {
 .footer-content ul > li {
     display: inline-block;
     margin-top: 50px;
-    padding:  0 50px;
+    padding:  0px 60px;
     color: #616161;
 }
 
@@ -554,32 +554,45 @@ span {
     height: 192px;
 }
 
-.footer-links > span {
-    display: inline-block;
-     margin-top: 25px;
-     padding-right: 100px;
+.footer-links .footer-links-left {
+    float: left;
+    font-size: 14px;
+    padding-top: 24px;
+    padding-right: 88px;
 }
-.footer-links > div {
-    text-align: center;
-    float: right;
-    margin-top: 20px;
+.footer-links-left > span {
+    display: block;
+    padding-top: 15px;
+    font-size: 12px;
+    color: #b0b0b0;
+} 
+
+.footer-links-left .first {
+    font-size: 15px;
+    color: #333;
 }
 
-.footer-links >div > span {
+.footer-links .footer-links-right {
+    float: right;
+    padding-top: 35px;
+    padding-right: 100px;
+}
+.footer-links-right > span {
     display: block;
 }
-
-.footer-links .a {
-    font-size: 22px;
+.footer-links-right > .a {
     color: #ff6700;
-    margin-bottom: 10px;
+    font-size: 18px;
 }
 
-.footer-links .b {
-    border: 1px solid #ff6700;
+.footer-links-right > .b {
+    padding-top: 13px;
+}
+
+.footer-links-right > .c {
+    margin-top: 20px;
+    padding: 5px;
     color: #ff6700;
-    font-size: 12px;
-    line-height: 28px;
-    height: 28px;
-    margin-top: 30px;
+    border: 1px solid #ff6700;
+    text-align: center;
 }

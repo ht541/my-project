@@ -1,6 +1,5 @@
 ; (function () {
     'use strict'
-
     function chunk(array, size = 1) {
         var len = array.length;
         var result = [];
@@ -12,15 +11,108 @@
         return result;
     }
 
+    function chunk1(array, size) {
+        var start = size || 1;
+        var result = [];
+        var neo = [];
+        for (var i = 0; i < array.length; i++) {
+            neo.push(array[i])
+            if (neo.length == start) {
+                result.push(neo)
+                neo = [];
+            }
+            if (array.length % size != 0) {
+                result.push(nep)
+            }
+        }
+        return result;
+    }
+
+
+    function chunk2(array, size = 1) {
+        var result = [];
+        for (var i = 0; i < array.length; i = i + size) {
+            result.push(array.slice(i, i + size))
+        }
+        return result;
+    }
+
     function eq(compare, comppared) {
         return (compare === comppared || Object.is(compare, comppared)) ? true : false;
     }
+
 
     function compact(arr) {
         return filters(arr, function (item, index, arr) {
             return !!item === true ? true : false;
         })
     }
+
+
+    function union(...arr) {
+        var array = [].concat(...arr);
+        var result = [];
+        for (var i = 0; i < array.length; i++) {
+            if (result.indexOf(array[i]) == -1) {
+                result.push(array[i])
+            }
+        }
+        return result;
+    }
+
+
+    function flattenDeeps(arr) {
+        var result = [];
+        function forDeeps(ary) {
+            for (var i = 0; i < ary.length; i++) {
+                if (Array.isArray(ary[i])) {
+                    forDeeps(ary[i])
+                } else {
+                    result.push(ary[i])
+                }
+            }
+        }
+        forDeeps(arr)
+        return result;
+    }
+
+
+    function flattenDeep(arr) {
+        while (arr.some(item => Array.isArray(item))) {
+            arr = Array.prototype.concat(...arr);
+        }
+        return arr;
+    }
+
+
+    function map(arr, mapper) {
+        var result = [];
+        for (var i = 0; i < arr.length; i++) {
+            result.push(mapper(arr[i]));
+        }
+        return result;
+    }
+
+
+    function first(arr) {
+        return arr[0];
+    }
+
+
+    function last(arr) {
+        return arr[lengt - 1];
+    }
+
+
+    function reverse(arr) {
+        var r = []
+        for (var i = arr.length - 1; i >= 0; i--) {
+            r.push(arr[i]);
+        }
+        return r
+    }
+
+
     function filters(arr, test) {
         var result = [];
         for (var i = 0; i < arr.length; i++) {
@@ -31,36 +123,62 @@
         return result;
     }
 
+
     function rest(arr) {
         return arr.splice(arr[0], arr[arr.length - 1]);
     }
+
 
     function drop(arr, n = 1) {
         return arr.slice(n);
     }
 
+
     function dropRight(arr, n = 1) {
         return drop(arr.reverse(), n).reverse();
     }
+
 
     function sLice(arr, start, end = arr.length) {
         return arr.splice(start, end);
     }
 
-    function flattenDeep(arr) {
-        while (arr.some(item => Array.isArray(item))) {
-            arr = Array.prototype.concat(...arr);
-        }
-        return arr;
-    }
-    
-    function map(arr, mapper) {
-        var result = [];
+
+    function findIndex(arr, predicate, index = 0) {
         for (var i = 0; i < arr.length; i++) {
-            result.push(mapper(arr[i]));
+            var value = arr[i];
+            if (predicate(value, i), index)
+                return i
         }
-        return result;
+        return -1
     }
+
+
+    function find(collection, predicate, index = 0) {
+        for (let key in collection) {
+            if (predicate(collection[key], index)) {
+                return collection[key];
+            }
+        }
+    }
+
+    function indexOf(arr, value) {
+        for (var i = 0; i < arr.length; i++) {
+            if (arr[i] === value) {
+                return i;
+            }
+        }
+        return -1
+    }
+
+
+    function reMove(arr, value) {
+        var index = arr.indexOf(value);
+        if (index > -1) {
+            arr.splice(index, 1);
+        }
+    }
+
 
     function join(arr, arrjner) {
         return reduce(arr, function (result, value, index) {
@@ -83,11 +201,13 @@
         }
     }
 
+
     function filp(fn) {
         return function (...args) {
             return fn(...args.reverse())
         }
     }
+
 
     function negate(fn) {
         return function (n) {
@@ -98,6 +218,7 @@
             }
         }
     }
+
 
     function Each(collection, iter) {
         for (var key in collection) {
@@ -117,6 +238,7 @@
         return result;
     }
 
+
     function numberTostring(n, base) {
         var result = '', sign = '';
         if (n < 0) {
@@ -131,17 +253,21 @@
         }
     }
 
+
     function take(arr, n = 1) {
         return arr.slice(0, n);
     }
+
 
     function takeRight(arr, n = 1) {
         return arr.reverse().slice(0, n).reverse();
     }
 
+
     function size(obj) {
         return Object.keys(obj).length;
     }
+
 
     function size(obj) {
         var count = 0;
@@ -151,9 +277,20 @@
         return count
     }
 
+
+    function every(collection, predicate, thisArg) {
+        for (var key in collection) {
+            if (!predicate(collection[key], key, thisArg)) {
+                return false
+            }
+        }
+        return true
+    }
+
     function add(augend, addend) {
         return augend + addend;
     }
+
 
     function keys(obj) {
         var result = [];
@@ -172,11 +309,24 @@
         return result;
     }
 
+    function some(collection, predicate, thisArg) {
+        for (var key in collection) {
+            var value = collection[key];
+            var index = key;
+            if (predicate(value, index, thisArg)) {
+                return true
+            }
+        }
+        return true
+    }
+
+
     function create(proto) {
         function A() { };
         A.prototype = proto;
         return new A();
     }
+
 
     function clone(obj) {
         if (isArrays(obj)) {
@@ -191,17 +341,21 @@
         return arr;
     }
 
+
     function gt(value, other) {
         return value > other ? true : false;
     }
+
 
     function gte(value, other) {
         return value >= other ? true : false;
     }
 
+
     function isArguments(values) {
         return Object.prototype.toString.call(values) === "[object Arguments]";
     }
+
 
     function isArrays(test) {
         return Object.prototype.toString.call(test) === "[object Array]";
@@ -214,21 +368,6 @@
         }
     }
 
-    function first(arr) {
-        return arr[0];
-    }
-
-    function last(arr) {
-        return arr[lengt - 1];
-    }
-
-    function reverse(arr) {
-        var r = []
-        for (var i = arr.length - 1; i >= 0; i--) {
-            r.push(arr[i]);
-        }
-        return r
-    }
 
     function reverseString(str) {
         var r = '';
@@ -243,52 +382,6 @@
         return Object.prototype.toString.call(values).slice(8, -1).toLowerCase();
     }
 
-    function findIndex(arr, predicate, index = 0) {
-        for (var i = 0; i < arr.length; i++) {
-            var value = arr[i];
-            if (predicate(value, i), index)
-                return i
-        }
-        return -1
-    }
-    function find(collection, predicate, index = 0) {
-        for (let key in collection) {
-            if (predicate(collection[key], index)) {
-                return collection[key];
-            }
-        }
-    }
-
-    function indexOf(arr, value) {
-        for (var i = 0; i < arr.length; i++) {
-            if (arr[i] === value) {
-                return i;
-            }
-        }
-        return -1
-    }
-
-    function reMove(arr, value) {
-        var index = arr.indexOf(value);
-        if (index > -1) {
-            arr.splice(index, 1);
-        }
-    }
-
-    function flattenDeeps(arr) {
-        var result = [];
-        function forDeeps(ary) {
-            for (var i = 0; i < ary.length; i++) {
-                if (Array.isArray(ary[i])) {
-                    forDeeps(ary[i])
-                } else {
-                    result.push(ary[i])
-                }
-            }
-        }
-        forDeeps(arr)
-        return result;
-    }
 
     function bind(fn, ...fixedArgs) {
         return function (...receivedArgs) {
@@ -316,6 +409,7 @@
         return arr.splice(0, arr.length - 1, )
     }
 
+
     function containsAll(str, ...srgs) {
         for (var i = 0; i < srgs.length; i++) {
             if (str.indexOf(srgs[i]) === -1) {
@@ -336,19 +430,23 @@
         }
     }
 
+
     function constant(value) {
         return function () {
             return value;
         }
     }
 
+
     function identity(value) {
         return value;
     }
 
+
     function toArray(value) {
         return [].concat(value);
     }
+
 
     function difference(arr, ...value) {
         for (var i = 0; i < arr.length; i++) {
@@ -360,6 +458,7 @@
         }
         return arr;
     }
+
 
     function fill(arr, value, start = 0, end = arr.length) {
         for (var i = start; i < end; i++) {
@@ -377,6 +476,15 @@
             })
         }
         return arr;
+    }
+
+
+    function after(n, fn) {
+        return function () {
+            for (var key in n) {
+                return fn(n[key])
+            }
+        }
     }
 
     function isEqual(obj, other) {
@@ -424,11 +532,13 @@
         return true;
     }
 
+
     function delay(fn, wait, ...args) {
         setTimeout(function () {
             fn(...args)
         }, wait)
     }
+
 
     function repeat(fn, tims, duration) {
         return function () {
@@ -437,6 +547,7 @@
             }
         }
     }
+
 
     function repeats(fn, tims, duration) {
         return function () {
@@ -447,11 +558,34 @@
         }
     }
 
+    function debounce(fn, duration) {
+        var timerid
+        return function (...args) {
+            clearTimeout(timerid);
+            timerid = setTimeout(function () {
+                fn(...args)
+            }, duration)
+        }
+    }
+
+    function throttle(fn, gap) {
+        var runtime = -Infinity;
+        return function (...args) {
+            var now = Data.now()
+            if (now - runtime > gap) {
+                fn(...args)
+                runtime = now;
+            }
+        }
+    }
+
+
     function attempt(source) {
         return function () {
             return source
         }
     }
+
 
     function unary(fn) {
         return function (arg) {
@@ -459,9 +593,51 @@
         }
     }
 
+
     function spread(fn) {
         return function (ary) {
             return fn.apply(null, ary)
         }
+    }
+
+
+    function mathches(o1) {
+        return function (o2) {
+            for (key in o1) {
+                if (o1[key] != o2[key]) {
+                    return false
+                }
+            }
+            return true;
+        }
+    }
+
+
+    function property(path) {
+        return function (path2) {
+            for (var i = 0; i < path.length; i++) {
+                if (path[i] != path2[i]) {
+                    return false
+                }
+            }
+            return true;
+        }
+    }
+
+
+    function propertyOf(obj) {
+        return function (obj1) {
+            for (var key in obj) {
+                if (obj[key] === obj1[key]) {
+                    return true
+                }
+            }
+            return true
+        }
+    }
+
+
+    function noop(arg) {
+        return arg = undefined;
     }
 })();
