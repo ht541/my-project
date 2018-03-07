@@ -21,6 +21,6 @@ function jsonp(url, successCb, timeoutCb, errorCb) {
         timeoutCb()
         delete window[cbName]
         document.body.removeChild(script)
-    })
+    },50000)
     document.body.appendChild(script);
 }
