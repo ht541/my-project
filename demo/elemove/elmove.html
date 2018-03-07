@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>拖拽</title>
+    <style>
+        .ui-dialog {
+            width: 380px;
+            height: auto;
+            position: absolute;
+            z-index: 100;
+            border: 1px solid #d5d5d5;
+            background: #fff;
+        }
+
+        .ui-dialog-title {
+            height: 48px;
+            line-height: 48px;
+            padding-left: 2px;
+            color: #535353;
+            background: #f5f5f5;
+            border-bottom: 1px solid #efefef;
+            cursor: move;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="ui-dialog" id="dialog" style="left:0;top:0">
+        <div class="ui-dialog-title" id="dialogTitle">登录通行证</div>
+        <script>
+            var elementMove = function () {
+                var isMove = false
+                var startx, starty;
+                var startPosX, startPosY;
+                var elMove;
+                
+                return function elEmentMove(el) {
+                    var btn = document.getElementById(el);
+                    btn.addEventListener('mousedown', function (e) {
+                        isMove = true;
+                        startx = e.pageX;
+                        starty = e.pageY;
+                        startPosX = parseFloat(this.style.left);
+                        startPosY = parseFloat(this.style.top);
+                    });
+
+                    btn.addEventListener('mousemove', function (e) {
+                        if (isMove) {
+                            var dx = e.pageX - startx;
+                            var dy = e.pageY - starty;
+                            var left = startPosX + dx
+                            var top = startPosY + dy
+                            if (left < 0) {
+                                left = 0;
+                            }
+                            if (left > window.innerWidth - this.getBoundingClientRect.width) {
+                                left = this.getBoundingClientRect.width;
+                            }
+                            if (top < 0) {
+                                top = 0;
+                            }
+                            if (top > window.innerHeight - this.getBoundingClientRect.height) {
+                                top = this.getBoundingClientRect.height;
+                            }
+                            this.style.left = left + 'px'
+                            this.style.top = top + 'px'
+                        }
+                    });
+
+                    window.addEventListener('mouseup', function (e) {
+                        isMove = false
+                    });
+                }
+            }()
+        </script>
+</body>
+
+</html>

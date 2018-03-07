@@ -22,11 +22,12 @@
                 neo = [];
             }
             if (array.length % size != 0) {
-                result.push(nep)
+                result.push(neo)
             }
         }
         return result;
     }
+
 
 
     function chunk2(array, size = 1) {
